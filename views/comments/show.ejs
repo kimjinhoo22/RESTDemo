@@ -4,11 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </head>
-<body>
-    <h1> Comments id : <%= comment.id %></h1>
-    <h2> <%= comment.comment %> - <%= comment.username %></h2>
-    <a href="/comments">뒤로 가기</a>
-
+<body>  
+    <div class="container">
+        <div class="card">
+            <h5 class="card-header">Comments 수정</h5>
+            <div class="card-body">
+                <h5 class="card-title"><%=comment.username%></h5>
+                <p class="card-text"><%=comment.comment%></p>
+                <a href="/comments" class="btn btn-primary">뒤로 가기</a>
+                <a href="/comments/<%=comment.id%>/edit" class="btn btn-primary">수정</a>
+                <form action="/comments/<%=comment.id%>?_method=DELETE" method="post">
+                    <button class="btn btn-primary">삭제</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
